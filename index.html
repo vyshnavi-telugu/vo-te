@@ -3,29 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voice Assistant Pro+ 🌟</title>
+  <title>🎤 Voice Assistant Pro+</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Roboto', sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #c3ecf7, #ffedd5); color: #0f172a; transition: background 0.5s ease; }
-    h1 { text-align: center; color: #1e3a8a; font-size: 2.8em; margin-bottom: 20px; animation: fadeIn 1s ease-in; text-shadow: 2px 2px 6px rgba(0,0,0,0.1); }
-    h2 { color: #1e40af; margin-bottom: 15px; border-bottom: 2px solid #3b82f6; padding-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .section { background: #ffffffcc; backdrop-filter: blur(12px); padding: 25px; border-radius: 20px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); margin-bottom: 25px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .section:hover { transform: translateY(-8px); box-shadow: 0 16px 35px rgba(0,0,0,0.25); }
-    button { padding: 10px 12px; margin: 6px 0; cursor: pointer; border: none; border-radius: 12px; background: linear-gradient(90deg, #3b82f6, #2563eb); color: #fff; font-weight: 700; font-size: 1em; transition: 0.3s; width: 50%; max-width: 100px; }
-    button:hover { background: linear-gradient(90deg, #2563eb, #1e40af); transform: scale(1.07); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
-    textarea { width: 100%; height: 150px; margin-top: 10px; padding: 14px; border-radius: 14px; border: 1px solid #cbd5e1; resize: none; font-size: 1em; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-    textarea:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 10px rgba(59,130,246,0.3); }
-    select, input[type=number] { margin-top: 10px; padding: 9px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 1em; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
-    select:focus, input[type=number]:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 8px rgba(59,130,246,0.3); }
+    h1 { text-align: center; color: #1e3a8a; font-size: 3em; margin-bottom: 25px; animation: fadeIn 1s ease-in; text-shadow: 2px 2px 8px rgba(0,0,0,0.15); }
+    h2 { color: #1e40af; margin-bottom: 15px; border-bottom: 3px solid #3b82f6; padding-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+    .section { background: #ffffffcc; backdrop-filter: blur(14px); padding: 30px; border-radius: 24px; box-shadow: 0 14px 36px rgba(0,0,0,0.2); margin-bottom: 30px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .section:hover { transform: translateY(-10px); box-shadow: 0 18px 42px rgba(0,0,0,0.25); }
+    button { padding: 12px 16px; margin: 8px 4px; cursor: pointer; border: none; border-radius: 14px; background: linear-gradient(90deg, #3b82f6, #2563eb); color: #fff; font-weight: 700; font-size: 1em; transition: 0.3s; }
+    button:hover { background: linear-gradient(90deg, #2563eb, #1e40af); transform: scale(1.08); box-shadow: 0 6px 18px rgba(0,0,0,0.25); }
+    textarea { width: 100%; height: 160px; margin-top: 12px; padding: 16px; border-radius: 16px; border: 1px solid #cbd5e1; resize: none; font-size: 1em; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    textarea:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 12px rgba(59,130,246,0.35); }
+    select, input[type=number] { margin-top: 12px; padding: 10px; border-radius: 12px; border: 1px solid #cbd5e1; font-size: 1em; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+    select:focus, input[type=number]:focus { border-color: #3b82f6; outline: none; box-shadow: 0 0 10px rgba(59,130,246,0.35); }
     label { margin-right: 8px; font-weight: 600; }
     .status { margin-top: 10px; color: #475569; font-weight: bold; font-size: 0.95em; transition: color 0.3s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 768px) { body { padding: 12px; } h1 { font-size: 2.2em; } button { max-width: 100%; font-size: 1em; } textarea { height: 130px; font-size: 0.95em; } select, input[type=number] { width: 100%; } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 768px) { body { padding: 14px; } h1 { font-size: 2.4em; } button { width: 100%; font-size: 1em; } textarea { height: 140px; font-size: 0.95em; } select, input[type=number] { width: 100%; } }
   </style>
 </head>
 <body>
 
-  <h1>🎙️ Voice Assistant Pro+ 🌟</h1>
+  <h1>🎤 Voice Assistant Pro+</h1>
 
   <div class="section">
     <h2>Speech to Text</h2>
@@ -86,16 +86,19 @@
       recognition.onstart = () => { isRecognizing = true; statusDiv.textContent = 'Status: Listening...'; statusDiv.style.color = '#10b981'; };
       recognition.onerror = (e) => { statusDiv.textContent = 'Error: ' + e.error; statusDiv.style.color = '#ef4444'; };
       recognition.onend = () => { isRecognizing = false; statusDiv.textContent = 'Status: Stopped'; statusDiv.style.color = '#475569'; };
+
       recognition.onresult = (e) => {
-        let interimText = '';
         let finalText = output.value;
-        for (let i = e.resultIndex; i < e.results.length; i++) {
-          let sentence = e.results[i][0].transcript;
-          if (punctuationToggle.checked) { sentence = sentence.trim(); if (!/[.!?]$/.test(sentence)) sentence += '.'; sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1); }
-          if (e.results[i].isFinal) finalText += (finalText ? ' ' : '') + sentence;
-          else interimText += sentence;
+        let lastIndex = e.resultIndex;
+        for (let i = lastIndex; i < e.results.length; i++) {
+          const transcript = e.results[i][0].transcript.trim();
+          if (e.results[i].isFinal) {
+            let sentence = transcript;
+            if (punctuationToggle.checked) { if (!/[.!?]$/.test(sentence)) sentence += '.'; sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1); }
+            finalText += (finalText ? ' ' : '') + sentence;
+          }
         }
-        output.value = finalText + (interimText ? ' ' + interimText : '');
+        output.value = finalText;
       };
     } else { statusDiv.textContent = 'SpeechRecognition not supported in this browser.'; }
 
@@ -123,10 +126,30 @@
     if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
 
     let utterance;
-    speakBtn.addEventListener('click', () => { if (!ttsInput.value) return; if (speechSynthesis.speaking) speechSynthesis.cancel(); utterance = new SpeechSynthesisUtterance(ttsInput.value); utterance.voice = voices[voiceSelect.value]; utterance.rate = parseFloat(rateInput.value); utterance.pitch = parseFloat(pitchInput.value); speechSynthesis.speak(utterance); });
+    speakBtn.addEventListener('click', () => {
+      if (!ttsInput.value) return;
+      if (speechSynthesis.speaking) speechSynthesis.cancel();
+      utterance = new SpeechSynthesisUtterance(ttsInput.value);
+      utterance.voice = voices[voiceSelect.value];
+      utterance.rate = parseFloat(rateInput.value);
+      utterance.pitch = parseFloat(pitchInput.value);
+      speechSynthesis.speak(utterance);
+
+      // Audio download using MediaRecorder
+      const synth = window.speechSynthesis;
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const dest = audioContext.createMediaStreamDestination();
+      const mediaRecorder = new MediaRecorder(dest.stream);
+      let chunks = [];
+      mediaRecorder.ondataavailable = e => chunks.push(e.data);
+      mediaRecorder.onstop = () => { const blob = new Blob(chunks, { type: 'audio/webm' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'speech.webm'; document.body.appendChild(a); a.click(); a.remove(); };
+      mediaRecorder.start();
+      utterance.onend = () => mediaRecorder.stop();
+    });
+
     stopTTSBtn.addEventListener('click', () => { if (speechSynthesis.speaking) speechSynthesis.cancel(); });
 
-    downloadTTSBtn.addEventListener('click', async () => { alert('Browser TTS audio download is limited. For full audio download, use server-side TTS APIs like OpenAI or Google Cloud.'); });
+    downloadTTSBtn.addEventListener('click', () => { alert('Click the Speak button to generate downloadable audio.'); });
   </script>
 
 </body>
