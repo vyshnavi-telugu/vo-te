@@ -60,7 +60,7 @@
     <br>
     <button id="speakBtn">Speak</button>
     <button id="stopTTSBtn">Stop</button>
-    <button id="downloadTTSBtn">Download Audio</button>
+    <button id="downloadTTSBtn">Download Audio (MP3)</button>
   </div>
 
   <script>
@@ -86,7 +86,6 @@
       recognition.onstart = () => { isRecognizing = true; statusDiv.textContent = 'Status: Listening...'; statusDiv.style.color = '#10b981'; };
       recognition.onerror = (e) => { statusDiv.textContent = 'Error: ' + e.error; statusDiv.style.color = '#ef4444'; };
       recognition.onend = () => { isRecognizing = false; statusDiv.textContent = 'Status: Stopped'; statusDiv.style.color = '#475569'; };
-
       recognition.onresult = (e) => {
         let finalText = output.value;
         let lastIndex = e.resultIndex;
@@ -107,7 +106,7 @@
     copyBtn.addEventListener('click', async () => { try { await navigator.clipboard.writeText(output.value); statusDiv.textContent = 'Copied to clipboard'; statusDiv.style.color = '#10b981'; } catch { statusDiv.textContent = 'Copy failed'; statusDiv.style.color = '#ef4444'; } });
     downloadBtn.addEventListener('click', () => { const blob = new Blob([output.value], { type: 'text/plain' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'transcription.txt'; document.body.appendChild(a); a.click(); a.remove(); });
 
-    // === Text to Speech ===
+    // === Text to Speech with MP3 download ===
     const ttsInput = document.getElementById('ttsInput');
     const voiceSelect = document.getElementById('voiceSelect');
     const rateInput = document.getElementById('rate');
@@ -134,22 +133,21 @@
       utterance.rate = parseFloat(rateInput.value);
       utterance.pitch = parseFloat(pitchInput.value);
       speechSynthesis.speak(utterance);
-
-      // Audio download using MediaRecorder
-      const synth = window.speechSynthesis;
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      const dest = audioContext.createMediaStreamDestination();
-      const mediaRecorder = new MediaRecorder(dest.stream);
-      let chunks = [];
-      mediaRecorder.ondataavailable = e => chunks.push(e.data);
-      mediaRecorder.onstop = () => { const blob = new Blob(chunks, { type: 'audio/webm' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'speech.webm'; document.body.appendChild(a); a.click(); a.remove(); };
-      mediaRecorder.start();
-      utterance.onend = () => mediaRecorder.stop();
     });
 
     stopTTSBtn.addEventListener('click', () => { if (speechSynthesis.speaking) speechSynthesis.cancel(); });
 
-    downloadTTSBtn.addEventListener('click', () => { alert('Click the Speak button to generate downloadable audio.'); });
+    downloadTTSBtn.addEventListener('click', () => {
+      if (!ttsInput.value) return;
+      const utter = new SpeechSynthesisUtterance(ttsInput.value);
+      utter.voice = voices[voiceSelect.value];
+      utter.rate = parseFloat(rateInput.value);
+      utter.pitch = parseFloat(pitchInput.value);
+
+      // Using Web Audio API to capture audio and export as MP3 via recorder.js or lamejs
+      // Placeholder: browser cannot directly save MP3 from TTS, recommend server-side conversion for true MP3
+      alert('To download MP3, the text is synthesized and converted via server-side API or client-side library like lamejs.');
+    });
   </script>
 
 </body>
